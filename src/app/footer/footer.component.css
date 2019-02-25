@@ -1,0 +1,18 @@
+i.fa-heart {
+  font-size:120%;
+  color:red;
+}
+.btn-social {
+  color: white;
+  font-size:200%;
+  text-shadow:2px 2px 4px #000000
+}
+.btn-social:hover {
+  color: #bd2130;
+}
+.footer-copyright {
+  text-align: center;
+  background-color: black;
+}
+
+

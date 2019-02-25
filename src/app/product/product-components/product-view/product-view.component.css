@@ -1,0 +1,50 @@
+.hidden-input{
+  position: absolute;
+  left: -99999px;
+  top: -99999px;
+  z-index: -1;
+  opacity: 0;
+}
+
+.btn-pink {
+  color: #fff;
+  background-color: fuchsia;
+  border-color: fuchsia;
+}
+
+.btn-pink:hover {
+  color: #fff;
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+.btn-pink:focus, .btn-info.focus {
+  box-shadow: 0 0 0 0.2rem rgba(110, 12, 195, 0.5);
+}
+.nav-link.active {
+  background-color: transparent;
+  border-width: 0 0 4px 0;
+  border-color: #1e7e34;
+}
+
+.nav-link:hover {
+  border-color: #1e7e34;
+}
+
+/* Increase img */
+
+/*.grow { transition: all .2s ease-in-out; }*/
+/*.grow:hover { transform: scale(1.2); }*/
+
+/* Make img bigger inside */
+.carousel-item:hover {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  -ms-transform: scale(1.3); /* IE 9 */
+  transform: scale(1.3);
+}
+
+
+
+

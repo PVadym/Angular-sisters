@@ -1,0 +1,28 @@
+.card{
+  width: 18em;
+}
+i{
+  color: white;
+}
+
+.card-hovered{
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: 0.5s all;
+  z-index: 10;
+}
+.btn-pink {
+  color: #fff;
+  background-color: fuchsia;
+  border-color: fuchsia;
+}
+
+.btn-pink:hover {
+  color: #fff;
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+.btn-pink:focus, .btn-info.focus {
+  box-shadow: 0 0 0 0.2rem rgba(110, 12, 195, 0.5);
+}

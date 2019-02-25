@@ -1,0 +1,33 @@
+.brand-img{
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.brand-img:hover
+{
+  cursor:wait;
+  transform: rotate(360deg);
+  transition: all 0.6s ease-in-out 0s;
+}
+
+i.fa-sign-in {
+  font-size:23px;
+  color:white;
+  text-shadow:2px 2px 4px #000000
+}
+.navbar-nav li:hover > ul.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu {
+  position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top:0;
+  left:100%;
+  margin-top:-6px;
+}
+
+/* rotate caret on hover */
+.dropdown-menu > li > a:hover:after {
+  text-decoration: underline;
+  transform: rotate(-90deg);
+}
