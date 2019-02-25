@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {map, retry} from 'rxjs/internal/operators';
+import {catchError, map, retry} from 'rxjs/internal/operators';
 import {ApiResponse} from './api-response';
 import {Observable} from 'rxjs/index';
 import {Product} from '../product/product';
@@ -56,7 +56,7 @@ export class ProductService {
   }
 
   getProductById(id: any): Observable<ApiResponse> {
-    let url = `${this.rest.api}/products/${id}`;
+    const url = `${this.rest.api}/products/${id}`;
     this.logger.log('get product ' + id + ' by url ' + url);
     return this.http.get(url, this.rest.httpOptions)
       .pipe(map(this.rest.mapFunc));

@@ -4,6 +4,7 @@ import {Product} from '../../product';
 import {ActionEvent} from '../action-event';
 import {EventType} from '../event-type.enum';
 import {LoggerService} from '../../../services/logger.service';
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-product-list',
@@ -14,6 +15,7 @@ export class ProductListComponent implements OnInit {
 
   products: Array<Product>;
   data: FormData;
+  error: HttpErrorResponse;
 
   public selectedProduct: Product;
 
@@ -28,7 +30,10 @@ export class ProductListComponent implements OnInit {
   private fetchData() {
     this.productService.getAllProducts().subscribe(p => {
       this.products = p.data;
-      console.log(this.products);
+      this.logger.log(this.products);
+
+    }, error => {
+      this.error = error;
     });
   }
 

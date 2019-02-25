@@ -1,7 +1,8 @@
 import {environment} from '../../environments/environment.local';
 import {Router} from '@angular/router';
 import {Injectable} from '@angular/core';
-import {HttpHeaders} from '@angular/common/http';
+import {HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {throwError} from "rxjs/index";
 
 @Injectable({
   providedIn: 'root'

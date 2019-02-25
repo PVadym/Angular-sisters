@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import {ProductService} from './services/product.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {ArraySortPipe} from './pipes/ArraySortPipe';
 import { ProductDetailsComponent } from './product/product-components/product-details/product-details.component';
@@ -16,6 +16,8 @@ import { ProductViewComponent } from './product/product-components/product-view/
 import { CardhoverDirective } from './product/cardhover.directive';
 import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
 import { ProductCreateComponent } from './product/product-components/product-create/product-create.component';
+import { HttpErrorInterceptor} from './services/http-error-interceptor';
+import { ErrorSectionComponent } from './home/error-section/error-section.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ProductCreateComponent } from './product/product-components/product-cre
     ProductViewComponent,
     CardhoverDirective,
     PageNotFoundComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ErrorSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,12 @@ import { ProductCreateComponent } from './product/product-components/product-cre
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

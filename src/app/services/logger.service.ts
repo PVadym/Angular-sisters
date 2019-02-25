@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
-import {environment} from '../../environments/environment';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoggerService {
 
-  log(data) {
+  log(message, data?) {
     if (environment.production) { return; }
 
-    console.log(data);
+    console.log(message, data);
   }
 
-  warn(data) {
+  warn(message, data?) {
     if (environment.production) { return; }
 
-    console.warn(data);
+    console.warn(message, data);
   }
 
-  error(data) {
+  error(message, data?) {
     if (environment.production) { return; }
 
-    console.error(data);
+    console.error(message, data);
   }
 }
