@@ -23,7 +23,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle">Products</a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/product-create">Add new</a></li>
+          <li><a class="dropdown-item" routerLink="/product-create" routerLinkActive="active">Add new</a></li>
           <li><a class="dropdown-item" href="#">Submenu0</a></li>
           <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Submenu 1</a>
             <ul class="dropdown-menu">
@@ -51,12 +51,12 @@
   </ul>
   <ul class="navbar-nav navbar-right">
     <li class="nav-item">
-      <a class="nav-link active" href="#"><i class="fas fa-sign-in-alt"></i> Log In</a>
+      <a class="nav-link active"  routerLink="/login" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> Log In</a>
     </li>
   </ul>
   <ul class="navbar-nav navbar-right">
     <li class="nav-item">
-      <a class="nav-link active" href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+      <a class="nav-link active" (click)="onLogout()" routerLinkActive="active"><i class="fas fa-sign-out-alt"></i> Log Out</a>
     </li>
   </ul>
 

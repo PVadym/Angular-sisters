@@ -16,8 +16,11 @@ import { ProductViewComponent } from './product/product-components/product-view/
 import { CardhoverDirective } from './product/cardhover.directive';
 import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
 import { ProductCreateComponent } from './product/product-components/product-create/product-create.component';
-import { HttpErrorInterceptor} from './services/http-error-interceptor';
+import { HttpErrorInterceptor} from './services/interceptors/http-error-interceptor';
 import { ErrorSectionComponent } from './home/error-section/error-section.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import {TokenInterceptor} from "./services/interceptors/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { ErrorSectionComponent } from './home/error-section/error-section.compon
     CardhoverDirective,
     PageNotFoundComponent,
     ProductCreateComponent,
-    ErrorSectionComponent
+    ErrorSectionComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,12 +45,18 @@ import { ErrorSectionComponent } from './home/error-section/error-section.compon
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ProductService,
+  providers: [
+    ProductService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true,
-    }],
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
